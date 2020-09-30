@@ -6,26 +6,27 @@
 **                                               **
 ** ********************************************* */
 @import "foundation/variables";
+@import "foundation/mixin";
 
 /* ********************************************* **
 **                                               **
 ** layout                                        **
 **                                               **
 ** ********************************************* */
-@import "layout/footer";
+@import "layout/l-header";
+@import "layout/l-main";
+@import "layout/l-footer";
 
 /* ********************************************* **
 **                                               **
 ** object/utility                                **
 **                                               **
 ** ********************************************* */
-@import "object/utility/link"; //aタグの色
+@import "object/utility/u-link"; //aタグの色
 
 /* ********************************************* **
 **                                               **
 ** object/component                              **
 **                                               **
 ** ********************************************* */
-@import "object/component/header";
-@import "object/component/main";
-@import "object/component/footer";
+@import "object/component/c-address";
