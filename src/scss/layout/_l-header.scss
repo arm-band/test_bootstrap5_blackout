@@ -1,16 +1,18 @@
 @charset "utf-8";
 
+@use "../foundation" as f;
+
 .l-header {
     .navbar-brand {
         &,
         &:link,
         &:visited {
-            color: $main-color;
+            color: f.$main-color;
         }
         &:hover,
         &:active,
         &:focus {
-            color: $main-color_l;
+            color: f.$main-color_l;
         }
     }
 }

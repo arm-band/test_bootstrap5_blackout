@@ -15,7 +15,7 @@
 }
 
 //疑似要素にFont Awesomeを付与する
-@mixin iconFA($icon: "", $type: "solid") {
+@mixin iconFA($icon: "", $type: "solid", $spacer) {
     font-family: "Font Awesome 5 Free", sans-serif;
     @if $type == "regular" or $type == "brands" {
         font-weight: 400;
