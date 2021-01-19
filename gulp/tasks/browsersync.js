@@ -1,12 +1,13 @@
-const _         = require('../plugin');
-const dir       = require('../dir');
-const ejs = require('./ejs');
-const jsBuild = require('./js');
-const sass = require('./sass');
+const { series, watch } = require('gulp');
+const browserSync       = require('browser-sync').create();
+const dir               = require('../dir');
+const ejs               = require('./ejs');
+const jsBuild           = require('./js');
+const sass              = require('./sass');
 
 //自動リロード
 const browsersync = () => {
-    _.browserSync.init({
+    browserSync.init({
         server: {
             baseDir: dir.dist.html
         },
@@ -14,15 +15,15 @@ const browsersync = () => {
         https: true
     });
 
-    const sEjs = _.gulp.series(ejs, _.browserSync.reload);
-    _.gulp.watch(
+    const sEjs = series(ejs, browserSync.reload);
+    watch(
         `${dir.src.ejs}/**/*.ejs`
     )
         .on('add',    sEjs)
         .on('change', sEjs)
         .on('unlink', sEjs);
-    const sSass = _.gulp.series(sass, _.browserSync.reload);
-    _.gulp.watch(
+    const sSass = series(sass, browserSync.reload);
+    watch(
         `${dir.src.scss}/**/*.scss`,
         {
             ignored: [
@@ -33,8 +34,8 @@ const browsersync = () => {
         .on('add',    sSass)
         .on('change', sSass)
         .on('unlink', sSass);
-    const sJs = _.gulp.series(jsBuild, _.browserSync.reload);
-    _.gulp.watch(
+    const sJs = series(jsBuild, browserSync.reload);
+    watch(
         `${dir.src.js}/**/*.js`,
         {
             ignored: [
@@ -47,4 +48,4 @@ const browsersync = () => {
         .on('unlink', sJs);
 };
 
-module.exports = _.gulp.series(browsersync);
+module.exports = browsersync;

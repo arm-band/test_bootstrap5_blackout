@@ -1,9 +1,14 @@
-const _         = require('../plugin');
-const dir       = require('../dir');
+const { src, dest } = require('gulp');
+const plumber       = require('gulp-plumber');
+const notify        = require('gulp-notify');
+const rename        = require('gulp-rename');
+const ejs           = require('gulp-ejs');
+const data          = require('gulp-data');
+const dir           = require('../dir');
 
 //ejs
-const ejs = () => {
-    return _.gulp.src(
+const ejsBuild = () => {
+    return src(
         `${dir.src.ejs}/**/*.ejs`,
         {
             ignore: [
@@ -11,19 +16,19 @@ const ejs = () => {
             ]
         }
     )
-    .pipe(_.plumber({
-        errorHandler: _.notify.onError({
+    .pipe(plumber({
+        errorHandler: notify.onError({
             message: 'Error: <%= error.message %>',
             title: 'ejs'
         })
     }))
-    .pipe(_.data((file) => {
+    .pipe(data((file) => {
         return { 'filename': file.path }
     }))
-    .pipe(_.ejs())
-    .pipe(_.rename({ extname: '.html' }))
-    .pipe(_.gulp.dest(dir.dist.html));
+    .pipe(ejs())
+    .pipe(rename({ extname: '.html' }))
+    .pipe(dest(dir.dist.html));
 };
 
 //上記をまとめておく
-module.exports = _.gulp.series(ejs);
+module.exports = ejsBuild;

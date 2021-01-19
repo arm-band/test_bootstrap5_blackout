@@ -1,25 +1,29 @@
-const _         = require('../plugin');
-const dir       = require('../dir');
-_.sass.compiler = require('sass');
+const { src, dest } = require('gulp');
+const plumber       = require('gulp-plumber');
+const notify        = require('gulp-notify');
+const sass          =  require('gulp-sass');
+sass.compiler = require('sass');
 const Fiber = require('fibers');
+const autoprefixer  = require('gulp-autoprefixer');
+const dir       = require('../dir');
 
 //scssコンパイルタスク
 const scss = () => {
-    return _.gulp.src(`${dir.src.scss}/**/*.scss`)
-        .pipe(_.plumber({
-            errorHandler: _.notify.onError({
+    return src(`${dir.src.scss}/**/*.scss`)
+        .pipe(plumber({
+            errorHandler: notify.onError({
                 message: 'Error: <%= error.message %>',
                 title: 'scss'
             })
         }))
-        .pipe(_.sass({
+        .pipe(sass({
             fiber: Fiber,
             outputStyle: 'compressed'
-        }).on('error', _.sass.logError))
-        .pipe(_.autoprefixer({
+        }).on('error', sass.logError))
+        .pipe(autoprefixer({
             cascade: false
         }))
-        .pipe(_.gulp.dest(dir.dist.css));
+        .pipe(dest(dir.dist.css));
 };
 
-module.exports = _.gulp.series(scss);
+module.exports = scss;
