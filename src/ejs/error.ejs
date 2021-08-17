@@ -1,4 +1,18 @@
-<%- include('partial/_head') %>
+<%- include('partial/_util') %>
+<%
+    parameters = {
+        title: 'Error',
+        description: 'Gulpを使用した最低限のフレームワークです。',
+        ogp: {
+            card: 'photo',
+            account: 'Bredtn_1et',
+            type: 'website',
+            image: 'img/hinomotogo.png'
+        },
+        errFlag: true
+    }
+-%>
+<%- include('partial/_head', { parameters }) %>
 <body>
 <%- include('partial/_header') %>
 <main class="l-main">
