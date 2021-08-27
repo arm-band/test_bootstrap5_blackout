@@ -1,4 +1,4 @@
-<%- include('partial/_util') %>
+<%- include('partial/_util') -%>
 <%
     parameters = {
         title: 'Home',
@@ -15,9 +15,9 @@
         errFlag: false
     }
 -%>
-<%- include('partial/_head', { parameters }) %>
+<%- include('partial/_head', { parameters }) -%>
 <body>
-<%- include('partial/_header') %>
+<%- include('partial/_header') -%>
 <main class="l-main">
     <section class="container py-5">
         <h1><i class="fas fa-fw fa-long-arrow-alt-up mr-2" aria-hidden="true"></i><%= parameters.title %><small class="ml-2" id="hello"></small></h1>
@@ -38,7 +38,7 @@
         <p>※住所・郵便番号・電話番号はいずれもダミーです。</p>
     </section>
 </main>
-<%- include('partial/_footer') %>
-<%- include('partial/_js_loader') %>
+<%- include('partial/_footer') -%>
+<%- include('partial/_js_loader') -%>
 </body>
 </html>
