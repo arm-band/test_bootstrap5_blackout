@@ -54,7 +54,7 @@ const configs = {
         ],
     }
 };
-if (process.env.DEV_MODE === 'dev') {
+if (devFlag === 'dev') {
     configs.devtool = 'inline-source-map';
 }
 

@@ -1,6 +1,6 @@
 {
     "name": "mori",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "Gulpを使用した最低限のフレームワークです。",
     "main": "gulpfile.js",
     "scripts": {

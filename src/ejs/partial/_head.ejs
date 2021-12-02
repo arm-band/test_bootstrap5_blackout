@@ -21,11 +21,15 @@ if(parameters.errFlag) {
 
     <meta name="twitter:card" content="<%= parameters.ogp.card %>">
     <meta name="twitter:site" content="@<%= parameters.ogp.account %>">
+    <meta name="twitter:title" content="<%= parameters.title %>" />
+    <meta name="twitter:description" content="<%= parameters.description %>" />
+    <meta name="twitter:image" content="<%= commons.url %><%= parameters.ogp.image %>" />
     <meta property="og:type" content="<%= parameters.ogp.type %>">
     <meta name="og:title" content="<%= parameters.title %>">
     <meta name="og:site_name" content="<%= commons.sitename %>">
     <meta name="og:description" content="<%= parameters.description %>">
     <meta name="og:image" content="<%= commons.url %><%= parameters.ogp.image %>">
+    <meta name="og:url" content="<%= commons.url %>" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
