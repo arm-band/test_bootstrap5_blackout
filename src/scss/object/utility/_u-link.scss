@@ -4,16 +4,16 @@
 
 a,
 a:link {
-    color: f.$link-color;
+    color: f.$m-link-color;
     text-decoration: none;
 }
 a:visited {
-    color: f.$link-v-color;
+    color: f.$m-link-v-color;
     text-decoration: none;
 }
 a:hover,
 a:active,
 a:focus {
-    color: f.$link-ha-color;
+    color: f.$m-link-ha-color;
     text-decoration: none;
 }

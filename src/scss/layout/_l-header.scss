@@ -7,12 +7,12 @@
         &,
         &:link,
         &:visited {
-            color: f.$main-color;
+            color: f.$m-main-color;
         }
         &:hover,
         &:active,
         &:focus {
-            color: f.$main-color_l;
+            color: f.$m-main-color_l;
         }
     }
 }
